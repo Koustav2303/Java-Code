@@ -1,1 +1,7 @@
 *.class
+*.class
+bin/
+out/
+target/
+.gradle/
+.idea/
