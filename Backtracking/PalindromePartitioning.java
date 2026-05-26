@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PalindromePartitioning {
+    public static List<List<String>> partition(String s) {
+        List<List<String>> result = new ArrayList<>();
+        backtrack(result, new ArrayList<>(), s, 0);
+        return result;
+    }
+
+    private static void backtrack(List<List<String>> result, List<String> tempList, String s, int start) {
+        if (start == s.length()) {
+            result.add(new ArrayList<>(tempList));
+            return;
+        }
+        for (int i = start; i < s.length(); i++) {
+            if (isPalindrome(s, start, i)) {
+                // If it is a palindrome, choose it and explore further
+                tempList.add(s.substring(start, i + 1));
+                backtrack(result, tempList, s, i + 1);
+                tempList.remove(tempList.size() - 1);
+            }
+        }
+    }
+
+    private static boolean isPalindrome(String s, int low, int high) {
+        while (low < high) {
+            if (s.charAt(low++) != s.charAt(high--)) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String s = "aab";
+        System.out.println("String: " + s);
+        System.out.println("Palindrome Partitions: " + partition(s));
+    }
+}
