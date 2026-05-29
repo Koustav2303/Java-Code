@@ -11,6 +11,7 @@ public class Candy {
                 candies[i] = candies[i - 1] + 1;
             }
         }
+
         
         // Right-to-Left pass: check against right neighbor
         for (int i = ratings.length - 2; i >= 0; i--) {
