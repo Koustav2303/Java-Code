@@ -58,3 +58,5 @@ public class MaxProbabilityPath {
         System.out.println("Maximum success path probability: " + maxProbability(3, edges, succProb, 0, 2)); // 0.25 (0->1->2)
     }
 }
+
+// Output: Maximum success path probability: 0.25
